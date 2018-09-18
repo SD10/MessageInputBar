@@ -35,7 +35,7 @@ open class AutocompleteManager: NSObject, InputPlugin, UITextViewDelegate, UITab
     open weak var delegate: AutocompleteManagerDelegate?
     
     /// A reference to the `UITextView` that the `AutocompleteManager` is using
-    private(set) public weak var textView: UITextView?
+    private(set) public weak var textView: InputTextView?
     
     /// An ongoing session reference that holds the prefix, range and text to complete with
     private(set) public var currentSession: AutocompleteSession? { didSet { layoutIfNeeded() } }
@@ -106,7 +106,7 @@ open class AutocompleteManager: NSObject, InputPlugin, UITextViewDelegate, UITab
     
     // MARK: - Initialization
     
-    public init(for textView: UITextView) {
+    public init(for textView: InputTextView) {
         super.init()
         self.textView = textView
         self.textView?.delegate = self
